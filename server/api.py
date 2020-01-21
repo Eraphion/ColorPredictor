@@ -7,9 +7,8 @@ CORS(app)
 @app.route("/api/addChoice", methods=['POST'])
 def add_user_choice():
     data = request.data
-    print('lower is data')
     print(data)
-    return 'Hello world'
+    return jsonify(success=True)
 
 if __name__ == '__main__':
     app.run(host='192.168.2.42', port=5000)

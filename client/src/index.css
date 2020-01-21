@@ -90,3 +90,12 @@ body {
   align-items: center;
   margin-right: 30px;
 }
+
+.error-text {
+  color: red;
+  text-align: center;
+}
+
+.info-text {
+  text-align: center
+}
