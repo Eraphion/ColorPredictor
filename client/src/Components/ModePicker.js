@@ -8,6 +8,7 @@ export const ModePicker = () => (
         <div className="select-mode-buttons">
             <Link className="btn" to="/training">Training mode</Link>
             <Link className="btn" to="/usage">Usage Mode</Link>
+            <Link className="btn indigo" to="/statistics">Statistics...</Link>
         </div>
     </div>
 )

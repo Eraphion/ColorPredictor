@@ -18,7 +18,7 @@ export const UsageMode = () => {
             onApiEnded: () => setLoading(false),
             onError: () => setServerOK(false),
             onSuccess: ({backgroundColor}) => 
-            history.push(`/viewPrediction/${color.r}/${color.g}/${color.b}/${backgroundColor}`)
+                history.push(`/viewPrediction/${color.r}/${color.g}/${color.b}/${backgroundColor}`)
         })
     }
     if (isLoading) return (<h1 className="info-text">Please stand by. Your request is processing...</h1>)

@@ -1,1 +1,1 @@
-{"liked": 3, "disliked": "0", "used_count": "0"}
+{"liked_count": 19, "disliked_count": 6, "used_total_count": 0}

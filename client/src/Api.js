@@ -32,5 +32,14 @@ export const API = {
         })
         .then(response => {onApiEnded(); onSuccess(response.data)})
         .catch(e => {onApiEnded(); onError(e)})
+    },
+    getStatistics: ({onApiStarted, onApiEnded, onSuccess, onError}) => {
+        onApiStarted()
+        axios({
+            method: 'get',
+            url: url + '/statistics',
+        })
+        .then(response => {onApiEnded(); onSuccess(response.data)})
+        .catch(e => {onApiEnded(); onError(e)})
     }
 }

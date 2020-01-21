@@ -96,10 +96,10 @@ body {
   text-align: center;
 }
 
-.info-text, .mode-picker, .usage-mode {
+.info-text, .mode-picker, .usage-mode, .statistics {
   text-align: center
 }
-.select-mode-buttons .btn:first-child, .prediction-actions .btn:first-child {
+.select-mode-buttons .btn:not(:last-child), .prediction-actions .btn:not(:last-child) {
   margin-right: 20px;
 }
 

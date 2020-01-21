@@ -7,6 +7,7 @@ import {UsageMode} from "./Components/UsageMode"
 import {ViewPrediction } from './Components/ViewPrediction'
 import {BadResult} from "./Components/BadResult"
 import {GoodResult} from "./Components/GoodResult"
+import {Statistics} from "./Components/Statistics"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/viewPrediction/:r/:g/:b/:background" exact component={ViewPrediction} />
       <Route path="/badResult" exact component={BadResult} />
       <Route path="/goodResult" exact component={GoodResult} />
+      <Route path="/statistics" exact component={Statistics} />
     </BrowserRouter>
   );
 }
