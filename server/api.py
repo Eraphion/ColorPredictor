@@ -40,5 +40,27 @@ def pick_color():
     color = predict_color(normalized_params)
     return jsonify(color)
 
+@app.route("/api/assessPrediction", methods=['POST'])
+def assess_prediction():
+    data = request.data.decode('utf-8')
+    params = ast.literal_eval(data)
+    with open('statistics.txt') as stats_file_read:
+        stats = json.load(stats_file_read)
+        liked_count = stats['liked']
+        disliked_count=stats['disliked']
+        used_count=stats['used_count']
+    if params['liked']:
+        liked_count = int(liked_count) + 1
+    else:
+        disliked_count = int(disliked_count) + 1
+    new_stats={
+        'liked': liked_count,
+        'disliked': disliked_count,
+        'used_count': used_count
+    }
+    with open('statistics.txt', 'w') as stats_file_write:
+        json.dump(new_stats, stats_file_write)
+    return jsonify(success=True)
+
 if __name__ == '__main__':
     app.run(host='192.168.2.42', port=5000)
