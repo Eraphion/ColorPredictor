@@ -40,7 +40,7 @@ export const TrainingMode = () => {
     <div className="training-mode">
         <div className="training-menu">
             <p className="count-info">You've already picked {pickedCount} backgrounds!</p>
-            <Link className="btn" to="/">Go to usage mode</Link>
+            <Link className="btn" to="/usage">Go to usage mode</Link>
         </div>
         <h1 className="pick-title">Pick The Best!</h1>
         <div className="training-fonts">

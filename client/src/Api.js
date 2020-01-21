@@ -12,5 +12,15 @@ export const API = {
         })
         .then(response => {onApiEnded(); onSuccess(response)})
         .catch(e => {onApiEnded(); onError(e)})
+    },
+    pickForUser: ({r,g,b, onApiStarted, onApiEnded, onSuccess, onError}) => {
+        onApiStarted();
+        axios({
+            method: 'get',
+            url: url + '/pickColor',
+            params: {"R": r, "G": g, "B": b}
+        })
+        .then(response => {onApiEnded(); onSuccess(response.data)})
+        .catch(e => {onApiEnded(); onError(e)})
     }
 }

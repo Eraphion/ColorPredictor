@@ -96,6 +96,54 @@ body {
   text-align: center;
 }
 
-.info-text {
+.info-text, .mode-picker, .usage-mode {
   text-align: center
+}
+.select-mode-buttons .btn:first-child, .prediction-actions .btn:first-child {
+  margin-right: 20px;
+}
+
+.view-prediction {
+  min-height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+}
+.prediction-sample {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 92px;
+}
+
+.prediction-actions {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prediction-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 30px);
+}
+
+.sad-image {
+  flex-grow: 1;
+  width: 700px;
+  background: url("Sad.jpg") no-repeat center;
+  background-size: contain;
+}
+.happy-image {
+  flex-grow: 1;
+  width: 900px;
+  background: url("happy.jpg") no-repeat center;
+  background-size: contain;
+}
+
+
+.result-back-btn {
+  margin-top: 15px;
 }
