@@ -1,3 +1,92 @@
 body {
   background-color: lightgrey
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.training-mode {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.training-fonts {
+  flex-grow: 1;
+  justify-content: space-around;
+  display: flex;
+}
+
+.font {
+  flex-grow: 1;
+  max-width: 40%;
+  cursor: pointer;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.font:hover {
+  border: 3px solid orange;
+  transform: scale(1.05)
+}
+
+
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-100%)
+  }
+  80% {
+    transform: translateX(70px)
+  }
+  100% {
+    transform: translateX(0px)
+  }
+ }
+
+ @keyframes moveFromRight {
+  0% {
+    transform: translateX(100%)
+  }
+  80% {
+    transform: translateX(-70px)
+  }
+  100% {
+    transform: translateX(0px)
+  }
+ }
+
+.left-font {
+  background-color: white;
+  animation: moveFromLeft 0.9s ease-out;
+  animation-delay: 0.2s;
+}
+
+.right-font {
+  background-color: black;
+  animation: moveFromRight 0.9s ease-out;
+  animation-delay: 0.2s;
+}
+
+
+.count-info {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.pick-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.training-menu {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  margin-right: 30px;
+}
