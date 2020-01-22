@@ -12,7 +12,7 @@ def normalize_params(params):
     normalized_r = params['R']/255
     normalized_g = params['G']/255
     normalized_b = params['B']/255
-    normalized_background = 0
+    normalized_background = 1
     if params.get('color') == 'white':
         normalized_background = 0
     return {
@@ -27,15 +27,17 @@ def add_user_choice():
     data = request.data.decode('utf-8')
     params = ast.literal_eval(data)
     with open('userChoices.txt', 'a') as f:
+        f.seek(0,2)
+        f.write('|')
         json.dump(normalize_params(params),f)
     return jsonify(success=True)
 
 @app.route("/api/pickColor", methods=['GET'])
 def pick_color():
     normalized_params = {
-        'r': int(request.args.get('R')) / 255,
-        'g': int(request.args.get('G')) / 255,
-        'b': int(request.args.get('B')) / 255,
+        'r': float(request.args.get('R')) / 255,
+        'g': float(request.args.get('G')) / 255,
+        'b': float(request.args.get('B')) / 255,
     }
     color = predict_color(normalized_params)
     return jsonify(color)
