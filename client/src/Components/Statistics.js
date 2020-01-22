@@ -17,11 +17,12 @@ export const Statistics = () => {
     }, [])
     if (isLoading) return (<h1 className="info-text">Please stand by. Your request is processing...</h1>)
     if (!isServerOK) return (<h1 className="error-text">Error happenned! Check console for logs</h1>)
-    const {liked_count, disliked_count, used_total_count} = stats
+    const {liked_count, disliked_count, used_total_count, records_count} = stats
     const happyPercent = Math.round(100*liked_count/(liked_count + disliked_count))
     return (
         <div className="card statistics">
             <div className="card-content">
+                <h2>User records keeping in server: {records_count}</h2>
                 <p>Users request background for custom text color {used_total_count} times</p>
                 <p>Users were satisfied with predication results {liked_count} times ({happyPercent}%)</p>
                 <p>Users were not happy with predication results {disliked_count} times</p>

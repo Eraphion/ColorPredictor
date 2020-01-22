@@ -6,8 +6,6 @@ from predictor import predict_color
 app = Flask(__name__)
 CORS(app)
 
-training_data = []
-
 def normalize_params(params):
     normalized_r = params['R']/255
     normalized_g = params['G']/255
@@ -24,6 +22,10 @@ def normalize_params(params):
 
 @app.route("/api/addChoice", methods=['POST'])
 def add_user_choice():
+    stats = read_statistics()
+    stats['records_count'] = stats['records_count'] + 1
+    with open('statistics.txt', 'w') as stats_file:
+        json.dump(stats, stats_file)
     data = request.data.decode('utf-8')
     params = ast.literal_eval(data)
     with open('userChoices.txt', 'a') as f:
@@ -34,6 +36,10 @@ def add_user_choice():
 
 @app.route("/api/pickColor", methods=['GET'])
 def pick_color():
+    stats = read_statistics()
+    stats['used_total_count'] = stats['used_total_count'] + 1
+    with open('statistics.txt', 'w') as stats_file:
+        json.dump(stats, stats_file)
     normalized_params = {
         'r': float(request.args.get('R')) / 255,
         'g': float(request.args.get('G')) / 255,
@@ -49,10 +55,12 @@ def read_statistics():
         liked_count = stats['liked_count']
         disliked_count=stats['disliked_count']
         used_total_count=stats['used_total_count']
+        records_count=stats['records_count']
     return {
         'liked_count': int(liked_count),
         'disliked_count': int(disliked_count),
-        'used_total_count': int(used_total_count)
+        'used_total_count': int(used_total_count),
+        'records_count': int(records_count)
     }
 
 
