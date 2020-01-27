@@ -51,11 +51,18 @@ def pick_color():
 
 def read_statistics():
     with open('statistics.txt') as stats_file:
-        stats = json.load(stats_file)
-        liked_count = stats['liked_count']
-        disliked_count=stats['disliked_count']
-        used_total_count=stats['used_total_count']
-        records_count=stats['records_count']
+        try:
+            stats = json.load(stats_file)
+            liked_count = stats['liked_count']
+            disliked_count=stats['disliked_count']
+            used_total_count=stats['used_total_count']
+            records_count=stats['records_count']
+        except json.decoder.JSONDecodeError:
+            liked_count = 0
+            disliked_count = 0
+            used_total_count = 0
+            records_count = 0
+
     return {
         'liked_count': int(liked_count),
         'disliked_count': int(disliked_count),
